@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Mushroom Classifier</title>
+    <!-- Add any necessary CSS or JS links here -->
+</head>
+<body>
+    <h1>Flask Mushroom Classifier</h1>
+
+    <form>
+        {% for attribute in attributes %}
+            {% set attr_parts = attribute.split(':') %}
+            <label>{{ attr_parts[1] }}</label>
+            <select name="{{ attr_parts[0] }}">
+                {% for option in dropdowns[attr_parts[0]] %}
+                    <option value="{{ option }}">{{ option }}</option>
+                {% endfor %}
+            </select>
+        {% endfor %}
+
+        <button type="button" id="predictButton">Predict</button>
+    </form>
+
+    <div id="output"></div>
+
+    <script>
+        document.getElementById('predictButton').addEventListener('click', function() {
+            var data = {};
+            {% for attribute in attributes %}
+                var attrName = "{{ attribute.split(':')[0] }}";
+                data[attrName] = document.querySelector('[name="' + attrName + '"]').value;
+            {% endfor %}
+
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.text())
+            .then(result => {
+                document.getElementById('output').innerHTML = result;
+            });
+        });
+    </script>
+</body>
+</html>

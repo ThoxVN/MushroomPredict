@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushroom Classifier</title>
+    <link rel="stylesheet" href="style.css"/> 
+    <script src="scrip.js"></script>
+</head>
+<body>      
+    <h1>Mushroom Classifier</h1>
+    <div id="detail">
+        <p>'0. cap-shape: bell=0,conical=1,convex=5,flat=2,knobbed=3,sunken=4',</p>
+        <p>'1. cap-surface: fibrous=0,grooves=1,scaly=3,smooth=2',</p>   
+        <p>'2. cap-color: brown=4,buff=0,cinnamon=1,gray=3,green=6,pink=5,purple=7,red=2,white=8,yellow=9',</p>
+        <p>'3. bruises?: bruises=1,no=0',</p>    
+        <p>'4. odor: almond=0,anise=3,creosote=1,fishy=8,foul=2,musty=4,none=5,pungent=6,spicy=7',</p>    
+        <p>'5. gill-attachment: attached=0,descending=2,free=1,notched=3',</p>    
+        <p>'6. gill-spacing: close=0,crowded=1,distant=2',</p>    
+        <p>'7. gill-size: broad=0,narrow=1',</p>    
+        <p>'8. gill-color: black=4,brown=5,buff=0,chocolate=3,gray=2,green=8,orange=6,pink=7,purple=9,red=1,white=10,yellow=11',</p>    
+        <p>'9. stalk-shape: enlarging=0,tapering=1',</p>    
+        <p>'10. stalk-root: bulbous=1,club=2,cup=5,equal=3,rhizomorphs=6,rooted=4,missing=0',</p>    
+        <p>'11. stalk-surface-above-ring: fibrous=0,scaly=3,silky=1,smooth=2',</p>    
+        <p>'12. stalk-surface-below-ring: fibrous=0,scaly=3,silky=1,smooth=2',</p>    
+        <p>'13. stalk-color-above-ring: brown=4,buff=0,cinnamon=1,gray=3,orange=5,pink=6,red=2,white=7,yellow=8',</p>    
+        <p>'14. stalk-color-below-ring: brown=4,buff=0,cinnamon=1,gray=3,orange=5,pink=6,red=2,white=7,yellow=8',</p>    
+        <p>'15. veil-type: partial=0,universal=1',</p>    
+        <p>'16. veil-color: brown=0,orange=1,white=2,yellow=3',</p>  
+        <p>'17. ring-number: none=0,one=1,two=2',</p>  
+        <p>'18. ring-type: cobwebby=5,evanescent=0,flaring=1,large=2,none=3,pendant=4,sheathing=6,zone=7',</p>    
+        <p>'19. spore-print-color: black=2,brown=3,buff=0,chocolate=1,green=5,orange=4,purple=6,white=7,yellow=8',</p>
+        <p>'20. population: abundant=0,clustered=1,numerous=2,scattered=3,several=4,solitary=5',</p>    
+        <p>'21. habitat: grasses=1,leaves=2,meadows=3,paths=4,urban=5,waste=6,woods=0'</p> 
+    </div>
+
+    <div id="bodyform">
+        <form action="/process_data" method="post">
+            <label for="attribute0">cap-shape :</label>
+            <input type="number" id="attribute0" name="attribute0" required>
+
+            <label for="attribute1">cap-surface :</label>
+            <input type="number" id="attribute1" name="attribute1" required>
+
+            <label for="attribute2">cap-color :</label>
+            <input type="number" id="attribute2" name="attribute2" required>
+
+            <label for="attribute3">bruises :</label>
+            <input type="number" id="attribute3" name="attribute3" required>
+
+            <label for="attribute4">odor :</label>
+            <input type="number" id="attribute4" name="attribute4" required>
+
+            <label for="attribute5">gill-attachment :</label>
+            <input type="number" id="attribute5" name="attribute5" required>
+
+            <label for="attribute6">gill-spacing :</label>
+            <input type="number" id="attribute6" name="attribute6" required>
+
+            <label for="attribute7">gill-size :</label>
+            <input type="number" id="attribute7" name="attribute7" required>
+
+            <label for="attribute8">gill-color :</label>
+            <input type="number" id="attribute8" name="attribute8" required>
+
+            <label for="attribute9">stalk-shape :</label>
+            <input type="number" id="attribute9" name="attribute9" required>
+
+            <label for="attribute10">stalk-root :</label>
+            <input type="number" id="attribute10" name="attribute10" required>
+
+            <label for="attribute11">stalk-surface-above-ring :</label>
+            <input type="number" id="attribute11" name="attribute11" required>
+
+            <label for="attribute12">stalk-surface-below-ring :</label>
+            <input type="number" id="attribute12" name="attribute12" required>
+
+            <label for="attribute13">stalk-color-above-ring :</label>
+            <input type="number" id="attribute13" name="attribute13" required>
+
+            <label for="attribute14">stalk-color-below-ring :</label>
+            <input type="number" id="attribute14" name="attribute14" required>
+
+            <label for="attribute15">veil-type :</label>
+            <input type="number" id="attribute15" name="attribute15" required>
+
+            <label for="attribute16">veil-color :</label>
+            <input type="number" id="attribute16" name="attribute16" required>
+
+            <label for="attribute17">ring-number :</label>
+            <input type="number" id="attribute17" name="attribute17" required>
+
+            <label for="attribute18">ring-type :</label>
+            <input type="number" id="attribute18" name="attribute18" required>
+
+            <label for="attribute19">spore-print-color :</label>
+            <input type="number" id="attribute19" name="attribute19" required>
+
+            <label for="attribute20">population :</label>
+            <input type="number" id="attribute20" name="attribute20" required>
+
+            <label for="attribute21">habitat :</label>
+            <input type="number" id="attribute21" name="attribute21" required>
+        </form>
+
+        <input type='text' id='txtMushroom' readonly='true' value="Result Predict Mushroom"/>
+        <button id="bt_summit" onclick='btnSubmit_Click()'> SUMMIT</button>  
+          
+    </div>
+       
+</body>
+</html>

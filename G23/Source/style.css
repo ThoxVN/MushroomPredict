@@ -1,0 +1,54 @@
+h1{
+    margin: auto;
+    text-align: center;
+}
+p {
+    margin: 2px;
+}
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+label, input {
+    margin-bottom: 10px;
+}
+
+label {
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 120px; /* Điều chỉnh độ rộng của nhãn (label) nếu cần thiết */
+    height: 50px;
+    font-size: 12px;
+}
+
+input {
+    width: 200px; /* Điều chỉnh độ rộng của ô input nếu cần thiết */
+    height: 20px;
+}
+
+#bt_summit{
+    background-color: green;
+    color: white;
+    width: 500px; 
+    height: 30px;
+    border-radius: 10px;
+    margin-left: 500px;
+}
+
+#detail{
+    margin:20px 0px;
+}
+#bodyform{
+    width: 1330px;
+    height: auto;
+    margin: auto;
+}
+#txtMushroom{
+    width: 500px;
+    height: 40px;
+    font-size: 30px;
+    text-align: center;
+    margin-left: 495px;
+}
